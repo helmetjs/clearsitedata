@@ -6,7 +6,7 @@ var DEFAULT_TYPES = [
 ]
 var VALID_TYPES = DEFAULT_TYPES
 
-module.exports = function (options) {
+module.exports = function clearSiteData (options) {
   options = options || {}
 
   var types = options.types || DEFAULT_TYPES
@@ -14,7 +14,7 @@ module.exports = function (options) {
 
   var value = JSON.stringify({ types: types })
 
-  return function (req, res, next) {
+  return function clearSiteData (req, res, next) {
     res.setHeader('Clear-Site-Data', value)
     next()
   }

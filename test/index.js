@@ -93,4 +93,9 @@ describe('clearSiteData', function () {
       clearSiteData({ types: 'cache' })
     })
   })
+
+  it('names its function and middleware', function () {
+    assert.equal(clearSiteData.name, 'clearSiteData')
+    assert.equal(clearSiteData().name, 'clearSiteData')
+  })
 })
