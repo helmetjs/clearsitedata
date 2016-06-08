@@ -78,17 +78,19 @@ describe('clearSiteData', function () {
 
   it('throws an error when given no types', function () {
     assert.throws(function () {
-      clearSiteData({
-        types: []
-      })
+      clearSiteData({ types: [] })
     })
   })
 
   it('throws an error when given an invalid type', function () {
     assert.throws(function () {
-      clearSiteData({
-        types: ['cache', 'garbage']
-      })
+      clearSiteData({ types: ['cache', 'garbage'] })
+    })
+  })
+
+  it('throws an error when given a non-array type', function () {
+    assert.throws(function () {
+      clearSiteData({ types: 'cache' })
     })
   })
 })
