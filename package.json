@@ -1,0 +1,38 @@
+{
+  "name": "clearsitedata",
+  "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
+  "description": "Middleware to set the Clear-Site-Data HTTP header",
+  "version": "0.0.0",
+  "license": "MIT",
+  "keywords": [
+    "helmet",
+    "security",
+    "express",
+    "connect",
+    "clear-site-data",
+    "cookies",
+    "privacy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/helmetjs/clearsitedata.git"
+  },
+  "bugs": "https://github.com/helmetjs/clearsitedata/issues",
+  "scripts": {
+    "pretest": "standard",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "mocha": "^2.5.3",
+    "standard": "^7.1.2",
+    "supertest": "^1.2.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "it"
+    ]
+  }
+}
