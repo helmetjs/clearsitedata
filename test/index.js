@@ -20,7 +20,7 @@ describe('clearSiteData', function () {
       if (err) { return done(err) }
 
       var value = JSON.parse(res.headers['clear-site-data'])
-      assert.deepEqual(value, {
+      assert.deepStrictEqual(value, {
         types: [
           'cache',
           'cookies',
@@ -40,7 +40,7 @@ describe('clearSiteData', function () {
       if (err) { return done(err) }
 
       var value = JSON.parse(res.headers['clear-site-data'])
-      assert.deepEqual(value, {
+      assert.deepStrictEqual(value, {
         types: [
           'cache',
           'cookies',
@@ -65,7 +65,7 @@ describe('clearSiteData', function () {
       if (err) { return done(err) }
 
       var value = JSON.parse(res.headers['clear-site-data'])
-      assert.deepEqual(value, {
+      assert.deepStrictEqual(value, {
         types: [
           'cache',
           'cookies'
@@ -95,7 +95,7 @@ describe('clearSiteData', function () {
   })
 
   it('names its function and middleware', function () {
-    assert.equal(clearSiteData.name, 'clearSiteData')
-    assert.equal(clearSiteData().name, 'clearSiteData')
+    assert.strictEqual(clearSiteData.name, 'clearSiteData')
+    assert.strictEqual(clearSiteData().name, 'clearSiteData')
   })
 })
