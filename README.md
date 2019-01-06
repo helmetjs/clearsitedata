@@ -8,7 +8,7 @@ The [Clear-Site-Data HTTP header](https://w3c.github.io/webappsec-clear-site-dat
 Usage:
 
 ```javascript
-var clearSiteData = require('clearsitedata')
+const clearSiteData = require('clearsitedata')
 
 // Clear everything
 app.get('/logout', clearSiteData({
