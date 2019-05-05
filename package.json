@@ -13,6 +13,7 @@
     "cookies",
     "privacy"
   ],
+  "homepage": "https://github.com/helmetjs/clearsitedata",
   "repository": {
     "type": "git",
     "url": "git://github.com/helmetjs/clearsitedata.git"
