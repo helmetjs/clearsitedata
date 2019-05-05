@@ -19,7 +19,7 @@
   },
   "bugs": "https://github.com/helmetjs/clearsitedata/issues",
   "scripts": {
-    "pretest": "standard",
+    "pretest": "standard --fix",
     "test": "mocha"
   },
   "devDependencies": {
