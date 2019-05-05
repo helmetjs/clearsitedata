@@ -11,20 +11,15 @@ Usage:
 const clearSiteData = require('clearsitedata')
 
 // Clear everything
-app.get('/logout', clearSiteData({
-  types: [
-    'cache',
-    'cookies',
-    'storage',
-    'executionContexts'
-  ]
+app.post('/logout', clearSiteData({
+  directives: ['*']
 }))
 
 // Clearing everything is the default
-app.get('/logout', clearSiteData())
+app.post('/logout', clearSiteData())
 
-// Only clear cookies
-app.get('/logout', clearSiteData({
-  types: ['cookies']
+// Only clear cookies and storage
+app.post('/logout', clearSiteData({
+  directives: ['cookies', 'storage']
 }))
 ```
