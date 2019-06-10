@@ -1,9 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 
-type Directive = 'cache' | 'cookies' | 'storage' | 'executionContexts' | '*';
-
 interface ClearSiteDataOptions {
-  directives?: Directive[];
+  directives?: string[];
 }
 
 function getHeaderValueFromOptions (options: ClearSiteDataOptions) {
@@ -32,9 +30,9 @@ function getHeaderValueFromOptions (options: ClearSiteDataOptions) {
 
   return directives.map((directive) => {
     if (!VALID_TYPES.has(directive)) {
-      throw new Error(`${directive } is not a valid Clear-Site-Data directive.`);
+      throw new Error(`${directive} is not a valid Clear-Site-Data directive.`);
     }
-    return `"${ directive }"`;
+    return `"${directive}"`;
   }).join(',');
 }
 

@@ -4,9 +4,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 
 import clearSiteData = require('..');
 
-type Directive = 'cache' | 'cookies' | 'storage' | 'executionContexts' | '*';
-
-const WHITELIST: Directive[] = [
+const WHITELIST = [
   'cache',
   'cookies',
   'executionContexts',
@@ -30,13 +28,13 @@ describe('clearSiteData', () => {
   });
 
   it('sets the header to "*" when passed an empty object', () => {
-    return request(app(clearSiteData())).get('/')
+    return request(app(clearSiteData({}))).get('/')
       .expect('Clear-Site-Data', '"*"');
   });
 
   WHITELIST.forEach(directive => {
-    it(`can set just one value, ${ directive}`, () => {
-      const expectedHeaderValue = `"${ directive }"`;
+    it(`can set just one value, ${directive}`, () => {
+      const expectedHeaderValue = `"${directive}"`;
       return request(app(clearSiteData({
         directives: [directive],
       }))).get('/')
