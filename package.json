@@ -30,6 +30,9 @@
     "dist/index.js",
     "dist/index.d.ts"
   ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "pretest": "npm run lint",
     "prepublishOnly": "npm run build",
