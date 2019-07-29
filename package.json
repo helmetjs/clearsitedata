@@ -26,6 +26,7 @@
   "typings": "./dist/index.d.ts",
   "files": [
     "LICENSE",
+    "CHANGELOG.md",
     "README.md",
     "dist/index.js",
     "dist/index.d.ts"
