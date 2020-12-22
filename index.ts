@@ -4,7 +4,7 @@ interface ClearSiteDataOptions {
   directives?: string[];
 }
 
-function getHeaderValueFromOptions(options: ClearSiteDataOptions) {
+function getHeaderValueFromOptions(options: ClearSiteDataOptions): string {
   const VALID_TYPES = new Set([
     "cache",
     "cookies",
