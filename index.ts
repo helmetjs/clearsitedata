@@ -4,7 +4,9 @@ interface ClearSiteDataOptions {
   directives?: string[];
 }
 
-function getHeaderValueFromOptions(options: Readonly<ClearSiteDataOptions>): string {
+function getHeaderValueFromOptions({
+  directives = ["*"],
+}: Readonly<ClearSiteDataOptions>): string {
   const VALID_TYPES = new Set([
     "cache",
     "cookies",
@@ -12,8 +14,6 @@ function getHeaderValueFromOptions(options: Readonly<ClearSiteDataOptions>): str
     "executionContexts",
     "*",
   ]);
-
-  const { directives = ["*"] } = options;
 
   if (!Array.isArray(directives)) {
     throw new Error("Clear-Site-Data directives must be an array.");
