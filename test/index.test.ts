@@ -4,7 +4,7 @@ import { IncomingMessage, ServerResponse } from "http";
 
 import clearSiteData = require("..");
 
-const WHITELIST = ["cache", "cookies", "executionContexts", "storage", "*"];
+const ALLOWLIST = ["cache", "cookies", "executionContexts", "storage", "*"];
 
 function app(middleware: ReturnType<typeof clearSiteData>) {
   const result = connect();
@@ -28,7 +28,7 @@ describe("clearSiteData", () => {
       .expect("Clear-Site-Data", '"*"');
   });
 
-  WHITELIST.forEach((directive) => {
+  ALLOWLIST.forEach((directive) => {
     it(`can set just one value, ${directive}`, () => {
       const expectedHeaderValue = `"${directive}"`;
       return request(
@@ -44,7 +44,7 @@ describe("clearSiteData", () => {
   });
 
   it("can set all the header values (other than *)", () => {
-    const directives = WHITELIST.filter(
+    const directives = ALLOWLIST.filter(
       (directive) => directive !== "*"
     ).sort();
 
