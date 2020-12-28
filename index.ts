@@ -4,7 +4,7 @@ interface ClearSiteDataOptions {
   directives?: string[];
 }
 
-function getHeaderValueFromOptions(options: ClearSiteDataOptions): string {
+function getHeaderValueFromOptions(options: Readonly<ClearSiteDataOptions>): string {
   const VALID_TYPES = new Set([
     "cache",
     "cookies",
@@ -42,7 +42,7 @@ function getHeaderValueFromOptions(options: ClearSiteDataOptions): string {
     .join(",");
 }
 
-export = function clearSiteData(options: ClearSiteDataOptions = {}) {
+export = function clearSiteData(options: Readonly<ClearSiteDataOptions> = {}) {
   const headerValue = getHeaderValueFromOptions(options);
 
   return function clearSiteData(
