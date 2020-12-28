@@ -16,54 +16,39 @@ function app(middleware: ReturnType<typeof clearSiteData>) {
 }
 
 describe("clearSiteData", () => {
-  it('sets the header to "*" when passed no arguments', () => {
-    return request(app(clearSiteData()))
+  it('sets the header to "*" when passed no arguments', async () => {
+    await request(app(clearSiteData()))
       .get("/")
       .expect("Clear-Site-Data", '"*"');
   });
 
-  it('sets the header to "*" when passed an empty object', () => {
-    return request(app(clearSiteData({})))
+  it('sets the header to "*" when passed an empty object', async () => {
+    await request(app(clearSiteData({})))
       .get("/")
       .expect("Clear-Site-Data", '"*"');
   });
 
   ALLOWLIST.forEach((directive) => {
-    it(`can set just one value, ${directive}`, () => {
+    it(`can set just one value, ${directive}`, async () => {
       const expectedHeaderValue = `"${directive}"`;
-      return request(
-        app(
-          clearSiteData({
-            directives: [directive],
-          })
-        )
-      )
+      await request(app(clearSiteData({ directives: [directive] })))
         .get("/")
         .expect("Clear-Site-Data", expectedHeaderValue);
     });
   });
 
-  it("can set all the header values (other than *)", () => {
+  it("can set all the header values (other than *)", async () => {
     const directives = ALLOWLIST.filter(
       (directive) => directive !== "*"
     ).sort();
 
-    return request(
-      app(
-        clearSiteData({
-          directives,
-        })
-      )
-    )
-      .get("/")
-      .then((response) => {
-        const actualDirectivesSorted = response
-          .get("Clear-Site-Data")
-          .split(/,\s*/g)
-          .map((quoted) => quoted.replace(/"/g, ""))
-          .sort();
-        expect(actualDirectivesSorted).toStrictEqual(directives);
-      });
+    const response = await request(app(clearSiteData({ directives }))).get("/");
+    const actualDirectivesSorted = response
+      .get("Clear-Site-Data")
+      .split(/,\s*/g)
+      .map((quoted) => quoted.replace(/"/g, ""))
+      .sort();
+    expect(actualDirectivesSorted).toStrictEqual(directives);
   });
 
   it("throws an error when given no directives", () => {
