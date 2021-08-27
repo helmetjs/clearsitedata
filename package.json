@@ -46,17 +46,17 @@
     "test": "jest --config test/jest-config.json"
   },
   "devDependencies": {
-    "@types/connect": "^3.4.34",
-    "@types/jest": "^26.0.23",
+    "@types/connect": "^3.4.35",
+    "@types/jest": "^27.0.1",
     "@types/supertest": "^2.0.11",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
     "connect": "^3.7.0",
-    "eslint": "^7.27.0",
-    "jest": "^27.0.4",
-    "prettier": "^2.3.0",
-    "supertest": "^6.1.3",
-    "ts-jest": "^27.0.2",
-    "typescript": "^4.3.2"
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.2"
   }
 }
