@@ -26,7 +26,7 @@ function getHeaderValueFromOptions({
     throw new Error("Clear-Site-Data directives cannot contain duplicates.");
   } else if (directivesSet.has("*") && directives.length > 1) {
     throw new Error(
-      'Clear-Site-Data cannot contain "*" and other directives. Remove the other directives or "*".'
+      'Clear-Site-Data cannot contain "*" and other directives. Remove the other directives or "*".',
     );
   }
 
@@ -34,7 +34,7 @@ function getHeaderValueFromOptions({
     .map((directive) => {
       if (!VALID_TYPES.has(directive)) {
         throw new Error(
-          `${directive} is not a valid Clear-Site-Data directive.`
+          `${directive} is not a valid Clear-Site-Data directive.`,
         );
       }
       return `"${directive}"`;
@@ -48,7 +48,7 @@ export = function clearSiteData(options: Readonly<ClearSiteDataOptions> = {}) {
   return function clearSiteData(
     _req: IncomingMessage,
     res: ServerResponse,
-    next: () => void
+    next: () => void,
   ) {
     res.setHeader("Clear-Site-Data", headerValue);
     next();

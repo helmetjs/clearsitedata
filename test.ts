@@ -65,7 +65,7 @@ test("throws an error when duplicates are provided", () => {
   assert.throws(
     clearSiteData.bind(null, {
       directives: ["cache", "cookies", "cache"],
-    })
+    }),
   );
 });
 
@@ -73,17 +73,17 @@ test("throws an error when * is provided and other values are also provided", ()
   assert.throws(
     clearSiteData.bind(null, {
       directives: ["*", "cookies"],
-    })
+    }),
   );
   assert.throws(
     clearSiteData.bind(null, {
       directives: ["cookies", "*"],
-    })
+    }),
   );
   assert.throws(
     clearSiteData.bind(null, {
       directives: ["*", "*"],
-    })
+    }),
   );
 });
 

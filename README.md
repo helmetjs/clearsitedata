@@ -12,7 +12,7 @@ app.post(
   "/logout",
   clearSiteData({
     directives: ["*"],
-  })
+  }),
 );
 
 // Clearing everything is the default
@@ -23,6 +23,6 @@ app.post(
   "/logout",
   clearSiteData({
     directives: ["cookies", "storage"],
-  })
+  }),
 );
 ```
