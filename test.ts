@@ -40,12 +40,12 @@ test("can set all the header values (other than *)", async () => {
   const directives = ALLOWLIST.filter((directive) => directive !== "*").sort();
 
   const response = await request(app(clearSiteData({ directives }))).get("/");
-  const actualDirectivesSorted = response
+  const responseDirectives = response
     .get("Clear-Site-Data")
     .split(/,\s*/g)
-    .map((quoted) => quoted.replace(/"/g, ""))
-    .sort();
-  assert.deepEqual(actualDirectivesSorted, directives);
+    .map((quoted) => quoted.replace(/"/g, ""));
+
+  assert.deepEqual(new Set(responseDirectives), new Set(directives));
 });
 
 test("throws an error when given no directives", () => {
