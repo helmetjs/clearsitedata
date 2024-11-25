@@ -42,7 +42,7 @@ test("can set all the header values (other than *)", async () => {
   const response = await request(app(clearSiteData({ directives }))).get("/");
   const responseDirectives = response
     .get("Clear-Site-Data")
-    .split(/,\s*/g)
+    ?.split(/,\s*/g)
     .map((quoted) => quoted.replace(/"/g, ""));
 
   assert.deepEqual(new Set(responseDirectives), new Set(directives));
