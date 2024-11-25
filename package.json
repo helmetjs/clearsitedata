@@ -42,7 +42,7 @@
     "format": "prettier --write .",
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
-    "test": "ts-node test.ts"
+    "test": "tsx --test test.ts"
   },
   "devDependencies": {
     "@types/connect": "^3.4.35",
@@ -54,7 +54,7 @@
     "eslint": "^8.45.0",
     "prettier": "^3.0.0",
     "supertest": "^6.3.3",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.19.2",
     "typescript": "^5.1.6"
   }
 }
