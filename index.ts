@@ -1,14 +1,23 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 
+type ClearSiteDataDirective =
+  | "cache"
+  | "clientHints"
+  | "cookies"
+  | "storage"
+  | "executionContexts"
+  | "*";
+
 interface ClearSiteDataOptions {
-  directives?: string[];
+  directives?: ClearSiteDataDirective[];
 }
 
 function getHeaderValueFromOptions({
   directives = ["*"],
 }: Readonly<ClearSiteDataOptions>): string {
-  const VALID_TYPES = new Set([
+  const VALID_TYPES: ReadonlySet<string> = new Set([
     "cache",
+    "clientHints",
     "cookies",
     "storage",
     "executionContexts",

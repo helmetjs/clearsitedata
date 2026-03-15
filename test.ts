@@ -6,7 +6,14 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 
 import clearSiteData = require(".");
 
-const ALLOWLIST = ["cache", "cookies", "executionContexts", "storage", "*"];
+const ALLOWLIST = [
+  "cache",
+  "clientHints",
+  "cookies",
+  "executionContexts",
+  "storage",
+  "*",
+] as const;
 
 function app(middleware: ReturnType<typeof clearSiteData>) {
   const result = connect();
