@@ -1,28 +1,26 @@
 {
   "name": "clearsitedata",
-  "author": "Evan Hahn <me@evanhahn.com> (https://evanhahn.com)",
-  "description": "Middleware to set the Clear-Site-Data HTTP header",
   "version": "0.2.0",
-  "license": "MIT",
+  "description": "Middleware to set the Clear-Site-Data HTTP header",
   "keywords": [
-    "security",
-    "express",
-    "connect",
     "clear-site-data",
+    "connect",
     "cookies",
-    "privacy"
+    "express",
+    "privacy",
+    "security"
   ],
   "homepage": "https://github.com/helmetjs/clearsitedata",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/helmetjs/clearsitedata.git"
-  },
   "bugs": {
     "url": "https://github.com/helmetjs/clearsitedata/issues",
     "email": "me@evanhahn.com"
   },
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "license": "MIT",
+  "author": "Evan Hahn <me@evanhahn.com> (https://evanhahn.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/helmetjs/clearsitedata.git"
+  },
   "files": [
     "LICENSE",
     "CHANGELOG.md",
@@ -30,16 +28,15 @@
     "dist/index.js",
     "dist/index.d.ts"
   ],
-  "engines": {
-    "node": ">=18.0.0"
-  },
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "pretest": "npm run lint",
     "prepublishOnly": "npm run build",
-    "lint": "npm run lint:oxlint && npm run lint:prettier",
+    "lint": "npm run lint:oxlint && npm run lint:oxfmt",
     "lint:oxlint": "oxlint",
-    "lint:prettier": "prettier --check .",
-    "format": "prettier --write .",
+    "lint:oxfmt": "oxfmt --check .",
+    "format": "oxfmt --write .",
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
     "test": "tsx --test test.ts"
@@ -49,10 +46,13 @@
     "@types/node": "^25.0.3",
     "@types/supertest": "^6.0.3",
     "connect": "^3.7.0",
+    "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
-    "prettier": "^3.7.4",
     "supertest": "^7.1.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
