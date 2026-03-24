@@ -56,7 +56,6 @@ test("throws an error when given no directives", () => {
 
 test("throws an error when given an invalid directive", () => {
   assert.throws(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     clearSiteData({ directives: ["cache", "garbage"] as any[] });
   });
 });
@@ -89,7 +88,6 @@ test("throws an error when * is provided and other values are also provided", ()
 
 test("throws an error when given a non-array type", () => {
   assert.throws(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     clearSiteData({ directives: "cache" } as any);
   });
 });
