@@ -19,7 +19,7 @@
   "author": "Evan Hahn <me@evanhahn.com> (https://evanhahn.com)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/helmetjs/clearsitedata.git"
+    "url": "https://github.com/helmetjs/clearsitedata.git"
   },
   "files": [
     "LICENSE",
